@@ -32,7 +32,7 @@
 
 
         // VARIABLES GLOBALES
-        let renderer, scene, camera, orbitControls, stats, gui, scenary, dataReady = false, data, cars = [], k = 0;
+        let renderer, scene, camera, guiModelAMenu, orbitControls, stats, gui, scenary, dataReady = false, data, cars = [], k = 0, state = 0;
         
         function init(event) {
             // RENDERER ENGINE
@@ -109,6 +109,11 @@
             });
             // Inicializar vista a perspectiva
             guiCameraMenu.add(camera, "reset").name("Reset");
+
+            guiCameraMenu.open();
+
+            // MODELS MENUS
+            guiModelAMenu = gui.addFolder("ModelsMenu");
             
             // LEER ARCHIVO JSON
             readTextFile("./data.json", function(text){
@@ -181,25 +186,29 @@
                             }
                         }
 
-                        const state = data.frames[k].semaphores[0].state;
+                        const curr_state = data.frames[k].semaphores[0].state;
 
                         // ACTUALIZAR SEMÁFORO
-                        /*switch(state) {
-                            case 0: // 0 = verde
-                                scenary.trafficLight1.setGreen();
-                                scenary.trafficLight2.setGreen();
-                                break;
-                            case 1: // 1 = amarillo
-                                scenary.trafficLight1.setYellow();
-                                scenary.trafficLight2.setYellow();
-                                break;
-                            case 2: // 2 = rojo
-                                scenary.trafficLight1.setRed();
-                                scenary.trafficLight2.setRed();
-                                break;
-                            default:
-                                break;
-                        }*/
+                        if (curr_state != state) {
+                            state = curr_state;
+                            switch(state) {
+                                case 0: // 0 = verde
+                                    scenary.trafficLight1.setGreen();
+                                    scenary.trafficLight2.setGreen();
+                                    break;
+                                case 1: // 1 = amarillo
+                                    scenary.trafficLight1.setYellow();
+                                    scenary.trafficLight2.setYellow();
+                                    break;
+                                case 2: // 2 = rojo
+                                    scenary.trafficLight1.setRed();
+                                    scenary.trafficLight2.setRed();
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                        }
                     }
                 }
                 k ++;
@@ -317,7 +326,7 @@
             setInModelView(model) {
                 this.insideCar = true;
                 this.position.set(model.position.x, 4.5, model.position.z);
-                this.orbitControls.target = new THREE.Vector3(0, 0, 0);
+                this.orbitControls.target = new THREE.Vector3(0, 0, 400);
                 this.up.set(0, 1, 0)
                 this.orbitControls.update();
             }
@@ -512,21 +521,21 @@
             }
 
             setGreen(){
-                this.greenLight.material.color = this.colorGreen;
-                this.yellowLight.material.color = this.colorOff;
-                this.redLight.material.color = this.colorOff;
+                this.greenLight.material.color.setHex(this.colorGreen);
+                this.yellowLight.material.color.setHex(this.colorOff);
+                this.redLight.material.color.setHex(this.colorOff);
             }
 
             setYellow() {
-                this.greenLight.material.color = this.colorOff;
-                this.yellowLight.material.color = this.colorYellow;
-                this.redLight.material.color = this.colorOff;
+                this.greenLight.material.color.setHex(this.colorOff);
+                this.yellowLight.material.color.setHex(this.colorYellow);
+                this.redLight.material.color.setHex(this.colorOff);
             }
 
             setRed() {
-                this.greenLight.material.color = this.colorOff;
-                this.yellowLight.material.color = this.colorOff;
-                this.redLight.material.color = this.colorRed;
+                this.greenLight.material.color.setHex(this.colorOff);
+                this.yellowLight.material.color.setHex(this.colorOff);
+                this.redLight.material.color.setHex(this.colorRed);
             }
 
         }
@@ -720,7 +729,7 @@
                 model.setOnFloor();
                                         
                 // MODEL-MENU
-                const guiModelMenu = gui.addFolder("ModelMenu" +  model.car_id);
+                const guiModelMenu = guiModelAMenu.addFolder("ModelMenu" +  model.car_id);
                 // GUI-Model
                 guiModelMenu.add(model, "visible").setValue(model.visible).name("Visible").listen().onChange(function(value) {});
 
