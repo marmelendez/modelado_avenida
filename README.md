@@ -6,8 +6,7 @@ Simulación de una avenida de dos carriles (sentido contrario), que cuenta con u
 
 ## Funcionamiento
 ### Simulación con AgentPy
-Código: ![codigo_simulacion]()
-
+[Código simulación]()  
 En la simulación se cuenta con dos agentes: auto y semáforo.
 | Agentes | Propiedades | 
 |---------|-------------|
@@ -25,7 +24,7 @@ Se modelan como agentes reactivos, por lo tanto sus acciones estan definidas por
 |Si el semáforo esta en rojo|El auto se detiene|
 
 ### Aplicación gráfica con Three.js
-Código:![codigo_app_grafica](https://github.com/marmelendez/modelado_avenida/blob/main/index.html)
+[Código app gráfica](https://github.com/marmelendez/modelado_avenida/blob/main/index.html)  
 Para la interfaz gráfica donde se visualizan los resultados de la simulación se toma en cuenta lo siguiente. Se cuenta con clases que representan los elementos de como:
 - Cámara
 - Piso
@@ -47,7 +46,7 @@ Cuenta con un menús que permiten al usuario modificar ciertos parametros de los
 ![3_model_menu](https://user-images.githubusercontent.com/57516503/143173077-580c0579-545e-45ca-b2e1-50014d8acca3.gif)
 
 ## Resultados
-Como resultado de la simulación con AgentPy se obtiene un archivo json ![archivo_json](https://github.com/marmelendez/modelado_avenida/blob/main/data.json) con la información de los agentes y en la aplicación gráfica se obtiene como resultado la visualización de esos datos. 
+Como resultado de la simulación con AgentPy se obtiene un archivo json [archivo_json](https://github.com/marmelendez/modelado_avenida/blob/main/data.json) con la información de los agentes y en la aplicación gráfica se obtiene como resultado la visualización de esos datos. 
 ![4_result](https://user-images.githubusercontent.com/57516503/143173362-7a97ce63-0cec-4b03-9390-a286df3c78a0.gif)
 
 
