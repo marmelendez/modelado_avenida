@@ -43,7 +43,7 @@ Cuenta con un menús que permiten al usuario modificar ciertos parametros de los
 ![2_camara_menu](https://user-images.githubusercontent.com/57516503/143173070-f1deae15-76ad-46e4-a39c-28fd74116a06.gif)
 
 3. Menu de modelo  
-![3_model_menu](https://user-images.githubusercontent.com/57516503/143173077-580c0579-545e-45ca-b2e1-50014d8acca3.gif)
+![5_model](https://user-images.githubusercontent.com/57516503/143280955-7b7f7cc0-2d9d-4b0e-bdd6-b9f57d9c2e3d.gif)
 
 ## Resultados
 Como resultado de la simulación con AgentPy se obtiene un archivo json [archivo_json](https://github.com/marmelendez/modelado_avenida/blob/main/data.json) con la información de los agentes y en la aplicación gráfica se obtiene como resultado la visualización de esos datos. 
