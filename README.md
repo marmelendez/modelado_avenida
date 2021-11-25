@@ -6,7 +6,7 @@ Simulación de una avenida de dos carriles (sentido contrario), que cuenta con u
 
 ## Funcionamiento
 ### Simulación con AgentPy
-[Código simulación]()  
+[Código simulación](https://github.com/marmelendez/modelado_avenida/blob/main/simulacion_avenida.ipynb)  
 En la simulación se cuenta con dos agentes: auto y semáforo.
 | Agentes | Propiedades | 
 |---------|-------------|
